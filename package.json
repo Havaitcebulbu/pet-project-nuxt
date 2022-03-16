@@ -1,0 +1,29 @@
+{
+  "name": "pet-project-vue",
+  "version": "1.0.0",
+  "main": "index.html",
+  "scripts": {
+    "dev": "nuxt dev"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "babel-preset-env": "^1.6.1",
+    "nuxt": "^2.15.8",
+    "pug": "^3.0.2",
+    "pug-plain-loader": "^1.1.0",
+    "sass": "^1.49.9",
+    "sass-loader": "^10.1.1",
+    "swiper": "^5.4.5",
+    "vue-awesome-swiper": "^4.1.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.3",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^4.0.0"
+  },
+  "description": ""
+}
