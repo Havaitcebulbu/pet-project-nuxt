@@ -30,3 +30,6 @@ html, body {
   font-weight: bold;
   color: #FFFFFF;
 }
+a.nuxt-link-exact-active {
+  background: linear-gradient(to bottom right, black 50%, #9803035C 50%);
+}
