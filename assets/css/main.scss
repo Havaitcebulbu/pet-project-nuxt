@@ -1,3 +1,12 @@
+:root {
+  --plyr-color-main: none;
+  --plyr-range-fill-background: #980303;
+  --plyr-audio-controls-background: none;
+  --plyr-audio-control-color: #ffffff;
+  --plyr-audio-progress-buffered-background: #ffffff;
+  --plyr-progress-loading-size: 10px;
+}
+
 .container {
   width: 100%;
   max-width: 1440px;
@@ -32,4 +41,8 @@ html, body {
 }
 a.nuxt-link-exact-active {
   background: linear-gradient(to bottom right, black 50%, #9803035C 50%);
+}
+.content {
+  background: url("~assets/img/background.png");
+  width: 100%;
 }

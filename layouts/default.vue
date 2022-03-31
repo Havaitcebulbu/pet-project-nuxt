@@ -7,6 +7,9 @@
 
 <script>
 export default {
-  name: "default"
+  name: "default",
+  beforeMount: function (rem) {
+    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+  }
 }
 </script>

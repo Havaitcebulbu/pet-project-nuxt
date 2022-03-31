@@ -8,6 +8,7 @@ export default {
     ],
     plugins:[
         { src: "~/plugins/vue-swiper.js", ssr: false },
+        { src: '~/plugins/vue-plyr', mode: 'client' }
     ]
 }
 

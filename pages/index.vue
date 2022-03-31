@@ -32,9 +32,6 @@
 </template>
 <script>
 export default {
-  css: [
-      '~assets/css/main.scss'
-  ],
   name: "index",
   data() {
     return {
@@ -91,10 +88,19 @@ export default {
 .photo{
   width: 100%;
   .swiper-wrapper {
-    height: 649px;
+    height: 100%;
   }
+
+  .swiper-pagination-bullet {
+    background: #ffffff;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #980303;
+  }
+
   &-img {
-    height: 649px;
+    height: 650px;
     width: 1440px;
   }
   .swiper-slide {
@@ -102,7 +108,7 @@ export default {
 }
 
 .album {
-  width: 1440px;
+  width: 100%;
   height: 390px;
   background: black;
   position: relative;
@@ -113,7 +119,8 @@ export default {
     display: flex;
     flex-direction: row;
     overflow: hidden;
-    width: 1230px;
+    max-width: 1230px;
+    width: 100%;
     padding: 0;
     margin-left: 0;
     list-style-type: none;
@@ -124,17 +131,14 @@ export default {
     flex-direction: row;
     margin: 0;
     width: 100%;
-    max-width: 1230px;
-    min-width: 1230px;
-    height: 310px;
+    min-height: 310px;
+    height: 100%;
   }
   .swiper-slide {
     position: relative;
     display: flex;
   }
   &-img {
-    height: 310px;
-    width: 380px;
     max-height: 310px;
     max-width: 380px;
     position: absolute;
@@ -192,29 +196,9 @@ export default {
 
 .liked {
   position: absolute;
-  fill: #980303;
+    fill: #980303;
   margin-top: 19px;
   margin-left: 331px;
-}
-
-#kind {
-  background: url("/img/kind.jpg");
-  background-size: cover;
-}
-
-#grey-chapter {
-  background: url("/img/grey.png");
-  background-size: cover;
-}
-
-#antennas {
-  background: url("/img/antennas.png");
-  background-size: cover;
-}
-
-#iowa {
-  background: url("/img/iowa.png");
-  background-size: cover;
 }
 
 .filler {
@@ -249,7 +233,7 @@ export default {
 }
 
 .main-photo {
-  width: 1440px;
+  width: 100%;
   height: 625px;
   background-size: cover;
   background: url("/img/main.png");
@@ -266,8 +250,5 @@ export default {
   padding-top: 17px;
 }
 
-.content {
-  background: url("/img/background.png");
-  width: 100%;
-}
+
 </style>

@@ -6,22 +6,10 @@
         .header__block-item.big WE ARE ON AIR
           .dot
       .header__block
-        nuxt-link(
-          class="header__block-item"
-          to="/"
-        ) MAIN
-        nuxt-link(
-          class="header__block-item"
-          to="/albums"
-        ) ALBUMS
-        nuxt-link(
-          class="header__block-item"
-          to="/tour"
-        ) TOUR
-        a(
-          class="header__block-item"
-          href="https://slipknotmerch.com/"
-        ) SHOP
+        nuxt-link.header__block-item(to="/") MAIN
+        nuxt-link.header__block-item(to="/album") ALBUMS
+        nuxt-link.header__block-item(to="/tour") TOUR
+        a.header__block-item(href="https://slipknotmerch.com/") SHOP
 </template>
 
 <script>

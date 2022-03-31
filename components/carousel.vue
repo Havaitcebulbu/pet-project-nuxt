@@ -14,6 +14,7 @@ export default {
       type: Object,
       default:() => {
         return {
+          height: 310,
           loop: true,
           slidesPerView: 3,
           spaceBetween: 35,
@@ -77,9 +78,9 @@ export default {
     min-width: 1230px;
     height: 310px;
   }
-    .swiper-slide {
-      position: relative;
-      display: flex;
-    }
+  .swiper-slide {
+    position: relative;
+    display: flex;
+  }
 }
 </style>
