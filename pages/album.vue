@@ -33,7 +33,7 @@ export default {
 }
 .main {
   width: 100%;
-  &-photo {
+  &-img {
     width: 100%;
     max-width: 1440px;
     max-height: 625px;

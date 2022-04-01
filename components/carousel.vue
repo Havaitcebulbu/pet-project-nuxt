@@ -14,6 +14,16 @@ export default {
       type: Object,
       default:() => {
         return {
+          breakpoints: {
+            1300: {
+              width: 1230,
+              slidesPerView: 3
+            },
+            900: {
+              width: 820,
+              slidesPerView: 2
+            }
+          },
           height: 310,
           loop: true,
           slidesPerView: 3,
@@ -49,14 +59,6 @@ export default {
     }
   },
   mounted() {
-    console.log('app init', this)
-    setTimeout(() => {
-      this.banners.push('/5.jpg')
-      console.log('banners update')
-    }, 3000)
-    console.log(
-        'This is current swiper instance object', this.mySwiper,
-        'I will slideTo banners 3')
     this.mySwiper.slideTo(3)
   }
 }
@@ -73,9 +75,7 @@ export default {
     display: flex;
     flex-direction: row;
     margin: 0;
-    width: 100%;
     max-width: 1230px;
-    min-width: 1230px;
     height: 310px;
   }
   .swiper-slide {

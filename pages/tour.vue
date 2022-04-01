@@ -1,13 +1,17 @@
 <template lang="pug">
   .content
     .main-photo
-      img(src='/img/tour-main.png')
+      img.main-img(src='/img/tour-main.png')
     .tour
       .tour__title(v-for="title in titles") {{title}}
-      .info-container(v-for="info in sortedInfos")
-        .tour__info {{info.country}}
-        .tour__info {{info.place}}
-        .tour__info {{info.date}}
+        button(
+          @click="sortedInfos"
+          v-if="title === 'COUNTRY'"
+        )
+      .info-container(v-for="info in infos")
+        .tour__info {{ info.country }}
+        .tour__info {{ info.place }}
+        .tour__info {{ info.date }}
     .links
       .links-container(v-for="photo in photos")
         img.links-photo(:src="photo.img")
@@ -18,65 +22,10 @@
 <script>
 export default {
   name: "tour",
-  data() {
-    return {
-      titles: [
-          'COUNTRY',
-          'PLACE',
-          'DATE'
-      ],
-      photos: [
-        {
-          img: '/img/iowa-tour.png',
-          name: 'ALBUMS',
-        },
-        {
-          img: '/img/tour.jpg',
-          name: 'TOUR',
-        },
-        {
-          img: '/img/works.png',
-          name: 'ARTWORKS',
-        },
-      ],
-      infos: [
-        {
-          country: 'MEMPHIS, TN',
-          place: 'FedExForum',
-          date: 'TUE, MAR 22',
-        },
-        {
-          country: 'TULSA, OK',
-          place: 'BOK center',
-          date: 'WED, MAR 23',
-        },
-        {
-          country: 'NORTH LITTLE ROCK, AR',
-          place: 'Simmons Bank Arena',
-          date: 'FRI, MAR 25',
-        },
-        {
-          country: 'DURANT, OK',
-          place: 'Choctaw Grand Theatre',
-          date: 'SAT, MAR 26',
-        },
-        {
-          country: 'BIRMINGHAM, AL',
-          place: 'Legacy Arena at the BJCC',
-          date: 'TUE, MAR 29',
-        },
-        {
-          country: 'NORTH CHARLESTON, SC',
-          place: 'North Charleston Coliseum',
-          date: 'WED, MAR 30',
-        },
-      ],
-    }
+  async asyncData({ $axios }) {
+    return {} = await $axios.$get('/data/events.json')
   },
-  async created() {
-
-  },
-  computed: {
+  methods: {
     sortedInfos: function() {
       function compare(a, b) {
         if (a.country < b.country)
@@ -96,6 +45,9 @@ export default {
 .main-photo {
   width: 100%;
   background: black;
+  .main-img {
+    width: 100%;
+  }
 }
 .tour {
   display: flex;
@@ -107,7 +59,7 @@ export default {
     width: 33%;
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
     padding-bottom: 20px;
     align-items: center;
   }
@@ -122,9 +74,10 @@ export default {
     display: flex;
     flex-direction: column;
     font-weight: 400;
-    font-size: 24px;
+    font-size: Rem(24);
     padding-bottom: 15px;
-    align-items: center;
+    align-items: flex-start;
+    padding-left: 10%;
   }
 }
 
@@ -135,16 +88,19 @@ export default {
   min-height: 380px;
   justify-content: space-evenly;
 
+
   &-container {
     min-height: 380px;
-    width: 33%;
+    width: 100%;
     position: relative;
     display: flex;
     justify-content: space-evenly;
     align-items: flex-end;
+    overflow: auto;
   }
   &-photo {
-    position: absolute;
+    max-width: 380px;
+    max-height: 375px;
   }
 
   &-name {

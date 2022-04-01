@@ -13,6 +13,10 @@
   margin: auto;
   color: white;
 }
+@function Rem($value) {
+  $remValue: ($value / 16) + rem;
+  @return $remValue;
+}
 @font-face {
   font-family: 'Tuffy';
   src: local('Tuffy'),
@@ -27,7 +31,7 @@
 }
 .font-low {
   font-weight: 400;
-  font-size: 16px;
+  font-size: Rem(16);
 }
 .bold {
   font-weight: 700;
@@ -38,6 +42,7 @@ html, body {
   font-size: 24px;
   font-weight: bold;
   color: #FFFFFF;
+  margin: 0;
 }
 a.nuxt-link-exact-active {
   background: linear-gradient(to bottom right, black 50%, #9803035C 50%);
