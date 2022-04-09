@@ -13,14 +13,16 @@
     .intro ALBUMS
     .album
       .arrow.swiper-button-prev
-      carousel
-        .swiper-wrapper
-          .swiper-slide(v-for="album in albums")
-            img.album-img(:src="album.img")
-            .album-title
-              span ALBUM
-              span.font-low {{ album.name }}
-            img.like(src="/img/like.svg")
+      .carousel-wrapper
+        carousel(fit-content)
+          .swiper-wrapper
+            .swiper-slide(v-for="album in albums")
+              .album__item
+                img.album-img(:src="album.img")
+                .album-title
+                  span ALBUM
+                  span.font-low {{ album.name }}
+                img.like(src="/img/like.svg")
       .arrow.swiper-button-next
     .filler
       .filler-head
@@ -79,17 +81,21 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.swiper-pagination-bullet {
-  background: #ffffff;
-}
-.swiper-pagination-bullet-active {
-  background: #980303;
+.carousel-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  @media screen and (max-width: 1200px) {
+    max-width: 800px;
+  }
+  @media screen and (max-width: 900px) {
+    max-width: 380px;
+
+  }
 }
 .photo{
   width: 100%;
-  .swiper-wrapper {
-    height: 100%;
-  }
+
 
   .swiper-pagination-bullet {
     background: #ffffff;
@@ -109,40 +115,21 @@ export default {
 
 .album {
   width: 100%;
-  height: 390px;
+  height: 100%;
   background: black;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  .swiper-wrapper {
-    display: flex;
-    flex-direction: row;
-    margin: 0;
-    min-height: 310px;
-    height: 100%;
-  }
-  .swiper-slide {
+  padding-top: 2%;
+  padding-bottom: 2%;
+
+  &__item {
     position: relative;
-    display: flex;
+    width: 380px;
+    height: 310px;
   }
   &-img {
-    max-height: 310px;
-    max-width: 380px;
+    width: 100%;
+    height: 100%;
     position: absolute;
-  }
-  &-item {
-    height: 310px;
-    max-height: 310px;
-    min-width: 380px;
-    width: 380px;
-    max-width: 380px;
-    margin-right: 35px;
-    position: relative;
-    &-img{
-      max-height: 310px;
-      max-width: 380px;
-    }
   }
 
   &-title {
@@ -167,13 +154,9 @@ export default {
 }
 .swiper-button-next {
   font-size: 70px;
-  position: absolute;
-  right: 50px;
 }
 .swiper-button-prev {
   font-size: 70px;
-  position: absolute;
-  left: 50px;
 }
 .like {
   position: absolute;
@@ -207,17 +190,19 @@ export default {
   &-line {
     color: #FFFFFF;
     position: absolute;
-    margin-top: 39%;
+    margin-top: 40%;
     background: #270202B2;
     max-width: 100%;
     width: 100%;
     display: flex;
-    height: 60px;
     align-items: center;
   }
 
   &-span {
     padding-left: 60%;
+    @media screen and (max-width: 900px) {
+      font-size: 12px;
+    }
   }
 
   &-img {

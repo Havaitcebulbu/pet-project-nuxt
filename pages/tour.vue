@@ -4,8 +4,12 @@
       img.main-img(src='/img/tour-main.png')
     .tour
       .tour__title(v-for="title in titles") {{title}}
-        button(
-          @click="sortedInfos"
+        button.up(
+          @click="sortUp"
+          v-if="title === 'COUNTRY'"
+        )
+        button.down(
+          @click="sortDown"
           v-if="title === 'COUNTRY'"
         )
       .info-container(v-for="info in infos")
@@ -26,7 +30,7 @@ export default {
     return {} = await $axios.$get('/data/events.json')
   },
   methods: {
-    sortedInfos: function() {
+    sortUp: function() {
       function compare(a, b) {
         if (a.country < b.country)
           return -1;
@@ -34,7 +38,20 @@ export default {
           return 1;
         return 0;
       }
-
+      document.querySelector('.up').style.display = 'none';
+      document.querySelector('.down').style.display = 'block';
+      return this.infos.sort(compare);
+    },
+    sortDown: function () {
+      function compare(a, b) {
+        if (a.country > b.country)
+          return -1;
+        if (a.country < b.country)
+          return 1;
+        return 0;
+      }
+      document.querySelector('.up').style.display = 'block';
+      document.querySelector('.down').style.display = 'none';
       return this.infos.sort(compare);
     }
   }
@@ -63,6 +80,13 @@ export default {
     padding-bottom: 20px;
     align-items: center;
   }
+  .up {
+
+  }
+
+  .down {
+    display: none;
+  }
   .info-container {
 
     width: 100%;
@@ -87,6 +111,9 @@ export default {
   width: 100%;
   min-height: 380px;
   justify-content: space-evenly;
+  @media screen and (max-width: 1200px) {
+    flex-direction: column;
+  }
 
 
   &-container {

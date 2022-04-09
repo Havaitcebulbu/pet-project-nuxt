@@ -43,11 +43,17 @@ export default {
   display: flex;
   flex-direction: row;
   padding-bottom: 100px;
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+  }
   &-img {
     max-height: 310px;
     max-width: 380px;
     margin-top: 100px;
     margin-left: 100px;
+    @media screen and (max-width: 1000px) {
+      margin: auto;
+    }
   }
 
   &-info {
