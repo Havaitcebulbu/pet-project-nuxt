@@ -13,29 +13,35 @@
   margin: auto;
   color: white;
 }
-@function Rem($value) {
-  $remValue: ($value / 16) + rem;
-  @return $remValue;
+
+
+@function rem($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}rem;
 }
+
 @font-face {
   font-family: 'Tuffy';
   src: local('Tuffy'),
   url('~assets/fonts/Tuffy-Regular.ttf');
   font-weight: 400;
 }
+
 @font-face {
   font-family: 'Tuffy';
   src: local('Tuffy'),
   url('~assets/fonts/Tuffy-Bold.ttf');
   font-weight: 700;
 }
+
 .font-low {
   font-weight: 400;
-  font-size: Rem(16);
+  font-size: 16px;
 }
+
 .bold {
   font-weight: 700;
 }
+
 html, body {
   width: 100%;
   font-family: 'Tuffy';
@@ -44,9 +50,11 @@ html, body {
   color: #FFFFFF;
   margin: 0;
 }
+
 a.nuxt-link-exact-active {
   background: linear-gradient(to bottom right, black 50%, #9803035C 50%);
 }
+
 .content {
   background: url("~assets/img/background.png");
   width: 100%;

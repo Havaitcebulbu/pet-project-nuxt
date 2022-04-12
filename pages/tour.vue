@@ -12,6 +12,11 @@
           @click="sortDown"
           v-if="title === 'COUNTRY'"
         )
+        button(
+          @click="dateSort"
+          v-if="title === 'DATE'"
+        )
+
       .info-container(v-for="info in infos")
         .tour__info {{ info.country }}
         .tour__info {{ info.place }}
@@ -30,7 +35,7 @@ export default {
     return {} = await $axios.$get('/data/events.json')
   },
   methods: {
-    sortUp: function() {
+    sortUp() {
       function compare(a, b) {
         if (a.country < b.country)
           return -1;
@@ -42,7 +47,7 @@ export default {
       document.querySelector('.down').style.display = 'block';
       return this.infos.sort(compare);
     },
-    sortDown: function () {
+    sortDown() {
       function compare(a, b) {
         if (a.country > b.country)
           return -1;
@@ -53,6 +58,9 @@ export default {
       document.querySelector('.up').style.display = 'block';
       document.querySelector('.down').style.display = 'none';
       return this.infos.sort(compare);
+    },
+    dateSort() {
+      infos.date.sort((a, b) => b - a);
     }
   }
 }
@@ -66,6 +74,7 @@ export default {
     width: 100%;
   }
 }
+
 .tour {
   display: flex;
   flex-direction: row;
@@ -80,25 +89,23 @@ export default {
     padding-bottom: 20px;
     align-items: center;
   }
-  .up {
-
-  }
 
   .down {
     display: none;
   }
-  .info-container {
 
+  .info-container {
     width: 100%;
     display: flex;
     flex-direction: row;
   }
+
   &__info {
     width: 33%;
     display: flex;
     flex-direction: column;
     font-weight: 400;
-    font-size: Rem(24);
+    font-size: rem(24);
     padding-bottom: 15px;
     align-items: flex-start;
     padding-left: 10%;
@@ -111,10 +118,10 @@ export default {
   width: 100%;
   min-height: 380px;
   justify-content: space-evenly;
+  padding-bottom: 100px;
   @media screen and (max-width: 1200px) {
     flex-direction: column;
   }
-
 
   &-container {
     min-height: 380px;
@@ -125,6 +132,7 @@ export default {
     align-items: flex-end;
     overflow: auto;
   }
+
   &-photo {
     max-width: 380px;
     max-height: 375px;

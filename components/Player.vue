@@ -1,10 +1,11 @@
 <template lang="pug">
- div
-   .track(v-for="track in tracks")
-    .title {{track.name}}
-    vue-plyr(:options="options")
-     audio
-       source(:src="track.source")
+  div
+   .player-container
+     .track(v-for="track in tracks")
+      .title {{track.name}}
+      vue-plyr(:options="options")
+       audio
+         source(:src="track.source")
 </template>
 
 <script>

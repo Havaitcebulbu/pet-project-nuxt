@@ -29,8 +29,6 @@
         span FACT
         p.filler-text October 20 for the UK and October 21 worldwide.[96] "The Negative One" was nominated for the 2014 Grammy Award for Best Metal Performance at the 57th Annual Grammy Awards.
       img.filler-img(src="/img/Rectangle%205.png")
-      .filler-line
-        span.filler-span COOL PHRASE
 </template>
 <script>
 export default {
@@ -109,6 +107,7 @@ export default {
     height: 650px;
     width: 1440px;
   }
+
   .swiper-slide {
   }
 }
@@ -126,6 +125,7 @@ export default {
     width: 380px;
     height: 310px;
   }
+
   &-img {
     width: 100%;
     height: 100%;
@@ -152,12 +152,15 @@ export default {
   font-size: 70px;
   font-weight: 600;
 }
+
 .swiper-button-next {
   font-size: 70px;
 }
+
 .swiper-button-prev {
   font-size: 70px;
 }
+
 .like {
   position: absolute;
   fill: #FFFFFF;
@@ -186,23 +189,6 @@ export default {
   &-text {
     font-size: 16px;
     font-weight: 700;
-  }
-  &-line {
-    color: #FFFFFF;
-    position: absolute;
-    margin-top: 40%;
-    background: #270202B2;
-    max-width: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-  }
-
-  &-span {
-    padding-left: 60%;
-    @media screen and (max-width: 900px) {
-      font-size: 12px;
-    }
   }
 
   &-img {

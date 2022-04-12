@@ -2,9 +2,7 @@
   .header
     .header__list
       .header__block
-        .header__block-item ICON
-        .header__block-item.big WE ARE ON AIR
-          .dot
+        .header__block-item.big ICON
       .header__block
         nuxt-link.header__block-item(to="/") MAIN
         nuxt-link.header__block-item(to="/album") ALBUMS
@@ -19,13 +17,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.dot{
-  margin-left: 10px;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  background: #980303;
-}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -37,6 +29,7 @@ export default {
     flex-direction: row;
     width: 100%;
   }
+
   &__block{
     background: black;
     display: flex;
@@ -53,8 +46,9 @@ export default {
       padding: 17px;text-decoration: none;
       color: #ffffff;
     }
+
     .big{
-      width: 75%;
+      width: 100%;
       display: flex;
       align-items: center;
     }
